@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Salas</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        h1{
+            color:white;
+            text-align: center;
+        }
+        .container{
+            color: black;
+            background-color: rgb(243, 236, 174);
+            border: 2px solid red;
+        }
+        body{
+            text-align: center;
+            background-image: url(img/sala1.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        table{
+            margin: auto;
+            width: 800px;
+            border-collapse: collapse;
+        }
+        td{
+            border: 1px solid;
+        }
+        tr.cor{
+            background-color: rgb(194, 60, 60);
+        }
+    </style>
+
+</head>
+<body>
+    <div class="cabeçalho">
+    <h1> Página de Salas </h1>
+    </div>
+    <div class="container">
+        <div class="Registro">
+            <p><b>Formulário de Entrada dos campos de sala:</b></p>
+            <form>
+            <input type="submit" value="Incluir"><br><br>
+
+            <label for="ipSala">Registro da Sala </label>
+            <input id="ipSala" type="text" name="ipSala">
+            <input type="reset" value="Excluir"> <br> <br>
+
+
+            <label for="ipRegistroSala">Registro da Sala a alterar</label>
+            <input id="ipRegistroSala" type="text" name="ipRegistroSala">
+            <input type="submit" value="Alterar">
+            <input type="submit" value="Salvar Alteração"><br><br>
+        </div>
+        <div class="Filtro">
+            <p><b>Filtro</b></p>
+            <label for="ipListar">Registro da Sala </label>
+            <input id="ipListar" type="text" name="ipListar">
+
+            <input type="submit" value="Listar-1">  
+            <input type="submit" value="Listar-Todos"> <br><br>
+            </form>
+        </div>
+        <table> 
+            <tr class="cor">
+                <td><b>Código</b></td>
+                <td><b>Nome</b></td>
+                <td><b>Capacidade</b></td>
+                <td><b>Tipo de exibição</b></td>
+                <td><b>Acessível</b></td>
+            </tr>
+            <tr>
+                <td>XXX-XXX</td>
+                <td>Sala 1</td>
+                <td>200 pessoas</td>
+                <td>IMAX</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>YYY-YYY</td>
+                <td>Sala 2</td>
+                <td>300 pessoas</td>
+                <td>XD</td>
+                <td>Sim</td>
+            </tr>
+        </table>
+        <br> 
+
+
+
+
+
+    </div>
+    
+</body>
+</html>
