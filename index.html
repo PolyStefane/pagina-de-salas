@@ -75,11 +75,11 @@
                 <button type="button" onclick="incluir()">Incluir</button>
                 <button type="button" onclick="excluir()">Excluir</button>
                 <button type="button" onclick="alterar()">Alterar</button>
-                <button type="button" >Listar - 1</button>
-                <button type="button" >Listar - Todos</button>
+                <button type="button" onclick="exibirUm()">Listar - 1</button>
+                <button type="button" onclick="exibirTodos()">Listar - Todos</button>
                 <br><br>
             </form> 
-        <table> 
+        <table id="tabela"> 
             <tr class="cor">
                 <td><b>Código</b></td>
                 <td><b>Nome</b></td>
@@ -87,20 +87,8 @@
                 <td><b>Tipo de exibição</b></td>
                 <td><b>Acessível</b></td>
             </tr>
-            <tr>
-                <td>XXX-XXX</td>
-                <td>Sala 1</td>
-                <td>200 pessoas</td>
-                <td>IMAX</td>
-                <td>Sim</td>
-            </tr>
-            <tr>
-                <td>YYY-YYY</td>
-                <td>Sala 2</td>
-                <td>300 pessoas</td>
-                <td>XD</td>
-                <td>Sim</td>
-            </tr>
+            
+            
         </table>
         <br> 
     </div>
@@ -169,8 +157,70 @@
         }
 
         function exibirUm(){
+            let ipCodigo = document.getElementById("ipCodigo").value.toUpperCase();
+            let tabela = document.getElementById("tabela");
 
+            tabela.innerHTML = `
+                <tr class="cor">
+                    <td><b>Código</b></td>
+                    <td><b>Nome</b></td>
+                    <td><b>Capacidade</b></td>
+                    <td><b>Tipo de exibição</b></td>
+                    <td><b>Acessível</b></td>
+                </tr>
+            `;
+
+            for (let i = 0; i < salas.length; i++){
+                if(salas[i].ipCodigo === ipCodigo){
+                    let row = tabela.insertRow();
+                    let codigoCell = row.insertCell(0);
+                    let nomeCell = row.insertCell(1);
+                    let capacidadeCell = row.insertCell(2);
+                    let exibicaoCell = row.insertCell(3);
+                    let acessivelCell = row.insertCell(4);
+
+                    codigoCell.innerText = salas[i].ipCodigo;
+                    nomeCell.innerText = salas[i].ipNome;
+                    capacidadeCell.innerText = salas[i].ipCapacidade;
+                    exibicaoCell.innerText = salas[i].ipExibicao;
+                    acessivelCell.innerText = salas[i].ipAcessivel;
+
+                    return;
+                }
+            }
+            alert("Código não encontrado!");
         }
+
+
+        function exibirTodos(){
+            let tabela = document.getElementById("tabela");
+          
+            tabela.innerHTML = `
+                 <tr class="cor">
+                    <td><b>Código</b></td>
+                    <td><b>Nome</b></td>
+                    <td><b>Capacidade</b></td>
+                    <td><b>Tipo de exibição</b></td>
+                    <td><b>Acessível</b></td>
+                </tr>
+                `;
+
+            for (let i = 0; i < salas.length; i++){
+                let row = tabela.insertRow();
+                let codigoCell = row.insertCell(0);
+                let nomeCell = row.insertCell(1);
+                let capacidadeCell = row.insertCell(2);
+                let exibicaoCell = row.insertCell(3);
+                let acessivelCell = row.insertCell(4);
+
+                codigoCell.innerText = salas[i].ipCodigo;
+                nomeCell.innerText = salas[i].ipNome;
+                capacidadeCell.innerText = salas[i].ipCapacidade;
+                exibicaoCell.innerText = salas[i].ipExibicao;
+                acessivelCell.innerText = salas[i].ipAcessivel;
+            }
+        }
+                     
     </script>
     
 </body>
